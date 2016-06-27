@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+input.invalid {
+        background-color: #FFBBBB;
+}
+
+input.textInput {
+        height: 30px;
+        padding: 5px;
+        border: 1px solid #E667AF;
+}
+
+input.formButton {
+        background-color: #FFFFFF;
+        color: #E6399B;
+        border: 1px solid #E667AF;
+        padding: 5px 8px 5px 8px;
+}
+
+input.shortNumber {
+        width: 40px;
+}
+
+input.midiumNumber {
+        width: 70px;
+}
+
+form.inline {
+        display: inline-block;
+}
+
+input[type="submit"].textSubmit {
+        font-size: 80%;
+        color: #444444;
+        background-color: transparent;
+        border:none;
+        border-bottom: dotted 2px #444444;
+}

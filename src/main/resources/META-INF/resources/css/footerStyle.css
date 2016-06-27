@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+div.footer {
+    width: 100%;
+    text-align: center;
+    background-color: #FFE5EF;
+    padding: 20px 10px;
+    margin-top: 30px;
+}

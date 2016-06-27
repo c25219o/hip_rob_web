@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+
+
+div.header {
+    border-bottom: double 3px #FFBBEE;
+    padding: 15px 10px;
+    background-color: #FFF0F9;
+    height: 80px;
+}
+
+div.information {
+    display: inline;
+    float:right;
+    margin-right: 10px;
+    text-align: right;
+}
+
+div.shopLogo {
+    display: inline;
+    margin-left: 10px;
+}
+
+div.shopLogo a {
+    font-size: 300%;
+    color: #DD55AA;
+    border: none;
+}
+

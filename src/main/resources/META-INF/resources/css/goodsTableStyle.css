@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+th.goodsName {
+    width: 100px;
+}
+
+th.goodsExp {
+    width: 350px;
+}
+
+th.maker {
+    width: 250px;
+}
+
+th.price {
+    width: 110px;
+}
+
+th.count {
+    width: 56px;
+}
+
+th.buy {
+    width: 50px;
+}

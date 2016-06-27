@@ -1,0 +1,130 @@
+@CHARSET "UTF-8";
+
+@font-face {
+    font-family: 'WebFont';
+    src: url(/font/ROUNDED-MPLUS-2P-LIGHT.TTF);
+}
+
+html, body {
+    margin: 0;
+    pagging: 0;
+}
+
+body {
+    font-family: WebFont;
+    font-size: 110%;
+    font-weight: bolder;
+    background-color: #FFFFFF;
+}
+
+div.content {
+    padding: 20px 50px;
+    line-height: 2;
+}
+
+div.screen_id, div.screen_id * {
+    display: none;
+}
+
+div.title {
+    font-size: 120%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+p.center {
+    text-align: center;
+}
+
+input, textarea {
+    font-family: WebFont;
+    font-weight: bolder;
+}
+
+input[type=text] {
+    width: 190px;
+    border: 1px dotted #E6399B;
+    border-radius: 5px;
+    padding:5px;
+}
+
+input[type=submit], input[type=reset], input[type=button] {
+    border: 1px dotted #E6399B;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #444444;
+    font-size: 100%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+table.inForm td {
+    padding: 7px 15px 7px 0px;
+}
+
+table.general td, th {
+    padding: 5px;
+}
+
+td.centering {
+    text-align: center;
+}
+
+td.right {
+    text-align: right;
+}
+
+td.minWidth {
+    min-width: 150px;
+}
+
+.fieldwrapper {
+    margin: 100px auto;
+    width: 70%;
+    height: 50%;
+    padding: 30px;
+    border: 3px dashed #E6399B;
+    border-radius: 10px;
+    bachground-color: #FFFFFF;
+}
+
+.paragraph {
+    margin: 0px 2px 15px 2px;
+}
+
+.errorMessage {
+    color: #FF0033;
+}
+
+a {
+    color: #444444;
+    text-decoration: none;
+    border-bottom: dotted 2px #444444;
+}
+
+a.menuButton {
+    display: block;
+    text-align: center;
+    width: 500px;
+    border: 2px dashed #E6399B;
+    background-color: #FFEEF0;
+    border-radius: 10px;
+    font-size: 150%;
+    color: #444444;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+.strong {
+    color: #FF0000;
+}

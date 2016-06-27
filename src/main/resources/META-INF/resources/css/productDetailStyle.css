@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+td.information {
+    padding-left: 70px;
+}
+
+td.memo {
+    height: 65%;
+}
