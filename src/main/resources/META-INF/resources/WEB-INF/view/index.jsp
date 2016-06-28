@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="screen_id"></div>
-    <%@include file="/WEB-INF/view/parts/header.jsp"%>
+    <%@include file="parts/header.jsp"%>
     <div class="content">
         <h2>しりとりーず</h2>
         <a href="/rob/standard.html" class="menuButton">ふつうのしりとり</a>
@@ -17,6 +17,6 @@
 
 
     </div>
-    <%@include file="/WEB-INF/view/parts/footer.jsp"%>
+    <%@include file="parts/footer.jsp"%>
 </body>
 </html>

@@ -11,12 +11,12 @@
 </head>
 <body>
     <div class="screen_id"></div>
-    <%@include file="/WEB-INF/view/parts/header.jsp"%>
+    <%@include file="parts/header.jsp"%>
     <div class="content">
 
     <h1>もちょっとまってね</h1>
 
     </div>
-    <%@include file="/WEB-INF/view/parts/footer.jsp"%>
+    <%@include file="parts/footer.jsp"%>
 </body>
 </html>

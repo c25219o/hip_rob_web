@@ -11,15 +11,18 @@
 </head>
 <body>
     <div class="screen_id"></div>
-    <%@include file="/WEB-INF/view/parts/header.jsp"%>
+    <%@include file="parts/header.jsp"%>
     <div class="content">
         <h2>なんもじいじょうのせいげんをつける？</h2>
+        <c:if test="${errorMessage != null}">
+            <p><span class="errorMessage">${errorMessage}</span></p>
+        </c:if>
         <form action="/rob/lengthLimit/start.html" class="inline">
             <input type="text" name="limit" placeholder="すうじでいれてね"><br>
             <input type="submit" value="しりとりをはじめる">
         </form>
 
     </div>
-    <%@include file="/WEB-INF/view/parts/footer.jsp"%>
+    <%@include file="parts/footer.jsp"%>
 </body>
 </html>
