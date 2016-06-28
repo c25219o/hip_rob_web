@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="screen_id"></div>
-    <%@include file="/WEB-INF/view/parts/header.jsp"%>
+    <%@include file="parts/header.jsp"%>
     <div class="content">
 
         <h2>じすうせいげんしりとり</h2>
@@ -35,6 +35,10 @@
             <input type="submit" value="こーさんする">
         </form>
 
+        <form action="/" class="inline">
+            <input type="submit" value="いりぐちにもどる">
+        </form>
+
         <c:if test="${!empty list}">
             <p>
                 ★いままででたことば★
@@ -46,6 +50,6 @@
         </c:if>
 
     </div>
-    <%@include file="/WEB-INF/view/parts/footer.jsp"%>
+    <%@include file="parts/footer.jsp"%>
 </body>
 </html>

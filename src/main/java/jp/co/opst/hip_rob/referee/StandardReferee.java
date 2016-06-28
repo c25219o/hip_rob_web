@@ -26,4 +26,12 @@ public class StandardReferee {
 		return alreadyList;
 	}
 
+    public String findOkWord(List<String> computerWords) {
+        for (String word : computerWords) {
+            if (!alreadyInput(word)) {
+                return word;
+            }
+        }
+        return null;
+    }
 }

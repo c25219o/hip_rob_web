@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import jp.co.opst.util.literal.LengthUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,23 +13,22 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.opst.hip_rob.Seeker;
+import jp.co.opst.hip_rob.service.Seeker;
 import jp.co.opst.hip_rob.param.InputWord;
 import jp.co.opst.hip_rob.referee.StandardReferee;
-import jp.co.opst.hip_rob.util.StringUtil;
 
 @Controller
 public class StandardRobController {
 
-    private StandardReferee referee;
+    @Autowired
+    private StandardReferee standardReferee;
 
     @Autowired
     private Seeker seeker;
 
     @RequestMapping("rob/standard")
     public String standard(HttpSession session) {
-        referee = new StandardReferee();
-        session.setAttribute("referee", referee);
+        session.setAttribute("referee", standardReferee);
         return "standard";
     }
 
@@ -36,46 +36,48 @@ public class StandardRobController {
     public String exe(@ModelAttribute @Validated InputWord words, BindingResult result, HttpSession session,
                       Model model) {
 
+        String current = words.getCurrent();
+        String previous = words.getPrevious();
+
         if (result.hasErrors()) {
-            if (!StringUtil.isEmpty(words.getPrevious())) {
-                model.addAttribute("computer", words.getPrevious());
-            }
-            model.addAttribute("list", referee.all());
+            if (LengthUtil.isNotEmpty(previous)) {
+                model.addAttribute("computer", previous);
+             }
+            model.addAttribute("list", standardReferee.all());
             return "standard";
         }
 
-        String current = words.getCurrent();
-        if (referee.alreadyInput(current)) {
-            model.addAttribute("list", referee.all());
+        // ユーザ：入力あり、その前のコンピュータの答え：なしの場合、一度リセット
+        if (LengthUtil.isNotEmpty(current) && LengthUtil.isEmpty(previous)) {
+            standardReferee.forget();
+        }
+
+        // 既出の言葉が出た場合
+        if (standardReferee.alreadyInput(current)) {
+            model.addAttribute("list", standardReferee.all());
             model.addAttribute("message", "さっきでたよ");
             return "standard";
         }
 
-        if (seeker.seek(current)) {
-            List<String> computerWords = seeker.get();
-            String validAnswer = null;
-            for (String str : computerWords) {
-                if (!referee.alreadyInput(str)) {
-                    validAnswer = str;
-                }
-            }
-            if (validAnswer != null) {
-                referee.remember(current);
-                referee.remember(validAnswer);
-                model.addAttribute("computer", validAnswer);
-                model.addAttribute("list", referee.all());
-                return "standard";
-            }
-        }
+        standardReferee.remember(current);
 
-        referee.forget();
-        model.addAttribute("message", "きみのかち！");
+        List<String> computerWords = seeker.seek(current);
+        String validAnswer = standardReferee.findOkWord(computerWords);
+
+        if (validAnswer != null) {
+            standardReferee.remember(validAnswer);
+            model.addAttribute("computer", validAnswer);
+            model.addAttribute("list", standardReferee.all());
+        } else {
+            standardReferee.forget();
+            model.addAttribute("message", "きみのかち！");
+        }
         return "standard";
     }
 
     @RequestMapping("rob/standard/giveup")
     public String giveup(Model model) {
-        referee.forget();
+        standardReferee.forget();
         model.addAttribute("message", "きみのまけ！");
         return "standard";
     }
