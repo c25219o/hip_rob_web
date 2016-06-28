@@ -22,7 +22,7 @@
         <%--</c:if>--%>
 
         <c:if test="${computer ne null}">
-           <br>コンピュータ【${computer}
+           <br>コンピュータ【${computer}】
         </c:if>
 
         <br>
