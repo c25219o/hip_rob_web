@@ -35,7 +35,7 @@
             <input type="submit" value="こーさんする">
         </form>
 
-        <form action="/" class="inline">
+        <form action="index.html" class="inline">
             <input type="submit" value="いりぐちにもどる">
         </form>
 

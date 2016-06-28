@@ -13,4 +13,10 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("index")
+    public String returnToindex() {
+        return "index";
+    }
+
 }
